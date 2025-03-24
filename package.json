@@ -1,0 +1,55 @@
+{
+  "name": "robolearn",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:dev": "cp .env.dev .env.local && yarn build",
+    "build:prod": "cp .env.prod .env.local && yarn build",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "prepare": "husky install",
+    "clean": "rm -rf node_module && rm -rf .next && rm -rf package-lock.json && rm -rf yarn.lock"
+  },
+  "dependencies": {
+    "antd": "^5.24.4",
+    "axios": "^1.8.4",
+    "dayjs": "^1.11.13",
+    "husky": "^9.1.7",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.86.0",
+    "swiper": "^11.2.6"
+  },
+  "devDependencies": {
+    "@builder.io/partytown": "^0.10.3",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/lodash": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.3",
+    "lint-staged": "^15.5.0",
+    "next": "^15.2.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.15",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

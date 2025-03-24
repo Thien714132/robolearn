@@ -1,0 +1,257 @@
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.RootView {
+  @media (max-width: 768px) {
+    .HeaderContainer {
+      height: 68px;
+      .LogoView {
+        justify-content: center;
+        .Logo {
+          height: 36px;
+          width: 36px;
+        }
+        .AppName {
+          display: none;
+        }
+      }
+      .DownloadView {
+        display: none;
+      }
+    }
+  }
+}
+
+.HomeContainer {
+  @media (max-width: 768px) {
+    padding-bottom: 50px;
+    padding-top: 118px;
+  }
+  .gradientText {
+    @media (max-width: 768px) {
+      font-size: 48px;
+      line-height: 57px;
+    }
+  }
+  .detailText {
+    @media (min-width: 768px) {
+      width: 699px;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.2px;
+      max-width: 358px;
+      word-wrap: break-word;
+    }
+  }
+}
+.downloadContainer {
+  @media (max-width: 768px) {
+  }
+
+  .downloadButton {
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+      width: 165px;
+      height: 50px;
+    }
+  }
+}
+
+.YourAssistants {
+  margin-top: 100px;
+  @media (max-width: 768px) {
+    margin-top: 50px;
+    font-size: 24px;
+    line-height: 36px;
+    width: 250px;
+  }
+}
+
+.FeatureLeftView {
+  flex: 1;
+  max-width: none;
+  @media (max-width: 768px) {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+  .FeatureTitle {
+    @media (max-width: 768px) {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+  }
+
+  .FeatureContent {
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+  }
+
+  .FeatureIcon {
+    @media (max-width: 768px) {
+      height: 40px;
+      width: 40px;
+      margin-bottom: 16px;
+    }
+  }
+  .ContentBold {
+    @media (max-width: 768px) {
+      font-weight: 600;
+      color: #000;
+    }
+  }
+}
+
+.FeatureWebp {
+  @media (max-width: 768px) {
+    // height: 200px;
+    width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 20px;
+  }
+}
+
+.UsingContainer {
+  @media (max-width: 768px) {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .UsingItemContainer {
+    @media (max-width: 768px) {
+      gap: 30px;
+    }
+  }
+  .UsingTitle {
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 50px;
+    }
+  }
+  .ContentUsingBold {
+    color: #475467;
+  }
+  .UsingIcon {
+    @media (max-width: 768px) {
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  .UsingTitleItem {
+    @media (max-width: 768px) {
+      font-size: 20px;
+      line-height: 30px;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .UsingContentItem {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.RateContainer {
+  .RatingItemField {
+    @media (max-width: 768px) {
+      height: 327px;
+    }
+  }
+  .RateTitle {
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 36px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .RatingItemContainer {
+    @media (max-width: 768px) {
+      padding: 16px;
+    }
+
+    .RatingTitleItem {
+      @media (max-width: 768px) {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 30px;
+      }
+    }
+
+    .StarItem {
+      padding-bottom: 16px;
+      padding-top: 16px;
+    }
+
+    .IconStar {
+      @media (max-width: 768px) {
+        height: 30px;
+        width: 30px;
+      }
+      @media (min-width: 768px) {
+        height: 48px;
+        width: 48px;
+      }
+    }
+
+    .RatingContentItem {
+      @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+      }
+    }
+
+    .RatingName {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .RatingSchool {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
