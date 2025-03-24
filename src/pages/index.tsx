@@ -1,26 +1,26 @@
-'use client';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 
+import useCheckMobileScreen from "@/hooks/useCheckMobileScreen";
 import {
   AI_FEATURE,
   HOW_TO_USE_ROBOLEARN,
   RATING_BY_USER,
-} from '@/ultils/contants';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import { Autoplay } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import TextDownloadApple from '../../public/svg/downloadAppleText.svg';
-import TextDownloadGoogle from '../../public/svg/downloadGoogleText.svg';
-import IconApple from '../../public/svg/iconApple.svg';
-import IconGoogle from '../../public/svg/iconGoogle.svg';
-import IconStar from '../../public/svg/iconStar.svg';
-import IconStarEmpty from '../../public/svg/iconStarEmpty.svg';
-import useCheckMobileScreen from '@/hooks/useCheckMobileScreen';
+} from "@/ultils/contants";
+import Head from "next/head";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import TextDownloadApple from "../../public/svg/downloadAppleText.svg";
+import TextDownloadGoogle from "../../public/svg/downloadGoogleText.svg";
+import IconApple from "../../public/svg/iconApple.svg";
+import IconGoogle from "../../public/svg/iconGoogle.svg";
+import IconStar from "../../public/svg/iconStar.svg";
+import IconStarEmpty from "../../public/svg/iconStarEmpty.svg";
 
 const StarRating = ({ stars }: { stars: number }) => {
   return (
@@ -30,13 +30,12 @@ const StarRating = ({ stars }: { stars: number }) => {
           <Image src={IconStar} alt="" key={i} className="IconStar" />
         ) : (
           <Image src={IconStarEmpty} alt="" key={i} className="IconStar" />
-        ),
+        )
       )}
     </div>
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const RatingSwiper = ({
   data,
   reverse,
@@ -57,12 +56,14 @@ const RatingSwiper = ({
       spaceBetween={20}
       slidesPerView={isMobile ? 1 : 3}
       modules={[Autoplay]}
-      pagination={{ clickable: true }}>
-      {data?.map(item => {
+      pagination={{ clickable: true }}
+    >
+      {data?.map((item) => {
         return (
           <SwiperSlide
             key={item?.id}
-            className="flex bg-[#F9FAFB] min-w-[350px] p-[20px] rounded-[16px] RatingItemContainer">
+            className="flex bg-[#F9FAFB] min-w-[350px] p-[20px] rounded-[16px] RatingItemContainer"
+          >
             <div className="flex flex-col justify-between h-[377px] RatingItemField">
               <div>
                 <div className="text-[24px] font-[700] leading-[36px] text-[#000] RatingTitleItem">
@@ -99,24 +100,25 @@ const RatingSwiper = ({
 };
 
 const Home = () => {
-  const router = useRouter();
   const isMobile = useCheckMobileScreen();
 
   return (
     <>
-      <Head></Head>
+      <Head>
+        <div></div>
+      </Head>
       <div className="flex flex-col items-center pl-[10px] pr-[10px]">
         <div className="flex flex-col justify-center items-center pt-[222px] pb-[122]  HomeContainer">
           {/* Intro field */}
 
           <div className="text-[80px] font-bold leading-[96px] text-center gradientText">
-            Learn{' '}
+            Learn{" "}
             <span className="bg-gradient-to-t from-[#00A18C] to-[#D6FFDB] bg-clip-text text-transparent">
               faster
             </span>
           </div>
           <div className="text-[80px] font-bold leading-[96px] text-center gradientText">
-            remember{' '}
+            remember{" "}
             <span className="bg-gradient-to-t from-[#00A18C] to-[#D6FFDB] bg-clip-text text-transparent">
               longer
             </span>
@@ -157,11 +159,12 @@ const Home = () => {
             Your Personalized AI Study Assistant
           </div>
           <div className="flex flex-col max-w-[1200px]">
-            {AI_FEATURE?.map(item => {
+            {AI_FEATURE?.map((item) => {
               return (
                 <div
                   key={item?.id}
-                  className="flex items-center flex-wrap items-center justify-center mb-[30px]">
+                  className="flex items-center flex-wrap items-center justify-center mb-[30px]"
+                >
                   <div className="flex flex-col mr-[100px] max-w-[350px] FeatureLeftView">
                     <Image
                       src={item?.icon}
@@ -201,7 +204,7 @@ const Home = () => {
             How users are using Robolearn
           </div>
           <div className="flex gap-[100px] flex-wrap justify-center UsingItemContainer">
-            {HOW_TO_USE_ROBOLEARN?.map(item => {
+            {HOW_TO_USE_ROBOLEARN?.map((item) => {
               return (
                 <div key={item?.id} className="max-w-[333px]">
                   <Image
