@@ -78,7 +78,7 @@ export default function MyApp({ Component, pageProps }) {
         ].join(" ")}
       >
         <AppProvider>
-          <div className="flex flex-row w-[100%] max-w-[1512px] h-[100px] pl-[20px] pr-[20px] items-center fixed HeaderContainer bg-[#fff] z-[10]">
+          <div className="flex flex-row w-[100%] max-w-[1512px] h-[100px] pl-[20px] pr-[20px] items-center fixed HeaderContainer bg-[#fff] z-[10] mt-[-2px]">
             <div className="flex items-center flex-1 LogoView">
               <img
                 src="favicon.ico"
