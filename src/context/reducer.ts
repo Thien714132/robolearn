@@ -1,4 +1,4 @@
-import { Action } from "./appContext";
+import { Action } from './appContext';
 
 export const reducer = (prevState: AppState, action: Action) => {
   switch (action.type) {

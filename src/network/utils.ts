@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { isNullOrEmpty } from "@/ultils/stringUtils";
-import isArray from "lodash/isArray";
+import { isNullOrEmpty } from '@/utils/stringUtils';
+import isArray from 'lodash/isArray';
 
 /**
  * convert object to request URL
@@ -12,20 +12,20 @@ import isArray from "lodash/isArray";
 export function getRequestUrl(
   requestUrl: string,
   params?: GetRequestParams,
-  queryString?: ObjectType
+  queryString?: ObjectType,
 ): string {
-  if (typeof params === "object" && params) {
+  if (typeof params === 'object' && params) {
     if (params?.parentId) {
-      requestUrl += "/" + params.parentId;
+      requestUrl += '/' + params.parentId;
     }
     if (params?.partial) {
-      requestUrl += "/" + params.partial;
+      requestUrl += '/' + params.partial;
     }
     if (params?.subId) {
-      requestUrl += "/" + params.subId;
+      requestUrl += '/' + params.subId;
     }
     if (params?.action) {
-      requestUrl += "/" + params.action;
+      requestUrl += '/' + params.action;
     }
   }
   if (queryString && !isNullOrEmpty(queryString)) {
@@ -41,25 +41,25 @@ export function getRequestUrl(
  */
 export function getQueryString(
   requestUrl: string,
-  params?: ObjectType
+  params?: ObjectType,
 ): string {
-  if (typeof params === "object" && params) {
+  if (typeof params === 'object' && params) {
     const ret: string[] = [];
     for (const d of Object.keys(params)) {
       if (isArray(params[d])) {
-        const arrayParams: string = `${d}=${params[d].join(",")}`;
+        const arrayParams: string = `${d}=${params[d].join(',')}`;
         ret.push(arrayParams);
       } else {
-        ret.push(encodeURIComponent(d) + "=" + encodeURIComponent(params[d]));
+        ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(params[d]));
       }
     }
 
     if (ret.length > 0) {
-      const retString = ret.join("&");
-      if (requestUrl.includes("?")) {
-        requestUrl = requestUrl + "&" + retString;
+      const retString = ret.join('&');
+      if (requestUrl.includes('?')) {
+        requestUrl = requestUrl + '&' + retString;
       } else {
-        requestUrl = requestUrl + "?" + retString;
+        requestUrl = requestUrl + '?' + retString;
       }
     }
   }
@@ -67,7 +67,7 @@ export function getQueryString(
 }
 
 export function getErrorMessage(error: any) {
-  return error?.response?.data || "Có lỗi xảy ra";
+  return error?.response?.data || 'Có lỗi xảy ra';
 }
 
 export function deleteParamsNotUsing(params: any) {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios, { AxiosRequestConfig } from "axios";
-import { AccessTokenInterceptor, LogInterceptor } from "./Interceptors";
+import axios, { AxiosRequestConfig } from 'axios';
+import { AccessTokenInterceptor, LogInterceptor } from './Interceptors';
 
 const getInstance = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -8,20 +8,20 @@ const getInstance = () => {
     baseURL: BASE_URL,
     timeout: 30000,
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
   instance.interceptors.request.use(
     AccessTokenInterceptor.addAccessToken,
-    AccessTokenInterceptor.onRejected
+    AccessTokenInterceptor.onRejected,
   );
   instance.interceptors.request.use(
     LogInterceptor.requestLog,
-    LogInterceptor.requestError
+    LogInterceptor.requestError,
   );
   instance.interceptors.response.use(
     LogInterceptor.responseLog,
-    LogInterceptor.responseError
+    LogInterceptor.responseError,
   );
   return instance;
 };
@@ -30,21 +30,21 @@ const networkInstance = { instance: getInstance() };
 const post = async (
   urlApi: string,
   params: any = null,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ) => {
   return networkInstance.instance.post(urlApi, params, config);
 };
 const patch = async (
   urlApi: string,
   params: any = null,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ) => {
   return networkInstance.instance.patch(urlApi, params, config);
 };
 const postFormData = async (urlApi: string, params: any) => {
   return networkInstance.instance.post(urlApi, params, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      'Content-Type': 'multipart/form-data',
     },
   });
 };
@@ -55,7 +55,7 @@ const deleteMethod = async (urlApi: string, data: any = null) => {
 const get = async (
   urlApi: string,
   data: any = null,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ) => {
   return networkInstance.instance.get(urlApi, { params: data, ...config });
 };

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { RESPONSE_CODE } from "./config";
+import { RESPONSE_CODE } from './config';
 
 export const AccessTokenInterceptor = {
   addAccessToken: (config: any) => {
@@ -13,7 +13,7 @@ export const AccessTokenInterceptor = {
     return config;
   },
   onRejected: (error: any) => {
-    console.log("onRejected AccessTokenInterceptor");
+    console.log('onRejected AccessTokenInterceptor');
     // return Promise.reject(error);
     return Promise.resolve(error);
   },
@@ -29,7 +29,7 @@ export const LogInterceptor = {
   },
 
   requestError: (error: any) => {
-    console.log("onRejected LogInterceptor");
+    console.log('onRejected LogInterceptor');
     return Promise.resolve(error);
   },
 
@@ -42,16 +42,16 @@ export const LogInterceptor = {
 
     if (response) {
       console.log(
-        `<<< ${config?.method}: ${config?.url} status:${response?.status}`
+        `<<< ${config?.method}: ${config?.url} status:${response?.status}`,
       );
-      console.log("responseError: ", response?.data);
+      console.log('responseError: ', response?.data);
       return Promise.resolve(response);
     } else {
       console.log(`<<< ${config.method}: ${config.url}`);
-      console.log("network log error", error);
+      console.log('network log error', error);
       return Promise.resolve({
         status: response?.status ?? RESPONSE_CODE.INTERNAL_SERVER_ERROR,
-        error: "Có lỗi xảy ra!!!",
+        error: 'Có lỗi xảy ra!!!',
       });
     }
   },

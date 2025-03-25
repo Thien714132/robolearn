@@ -7,22 +7,3 @@ type GetRequestParams = {
   subId?: string | number;
   action?: string | number;
 };
-
-type ObjectCommon = {
-  id: number;
-  name: string;
-};
-
-interface InfoEditDataInterface {
-  createdBy: string;
-  modifiedBy: string;
-  createdDate: number;
-  modifiedDate: number;
-}
-
-interface PaginationInterface {
-  page: 0;
-  size: 100;
-  total: 7;
-  totalPages: 1;
-}

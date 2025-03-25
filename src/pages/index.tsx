@@ -1,26 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+'use client';
 
-import useCheckMobileScreen from "@/hooks/useCheckMobileScreen";
+import { FAQ } from '@/components/FAQ/FAQ';
+import { Footer } from '@/components/footer';
+import useCheckMobileScreen from '@/hooks/useCheckMobileScreen';
 import {
   AI_FEATURE,
   HOW_TO_USE_ROBOLEARN,
   RATING_BY_USER,
-} from "@/ultils/contants";
-import Head from "next/head";
-import Image from "next/image";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import TextDownloadApple from "../../public/svg/downloadAppleText.svg";
-import TextDownloadGoogle from "../../public/svg/downloadGoogleText.svg";
-import IconApple from "../../public/svg/iconApple.svg";
-import IconGoogle from "../../public/svg/iconGoogle.svg";
-import IconStar from "../../public/svg/iconStar.svg";
-import IconStarEmpty from "../../public/svg/iconStarEmpty.svg";
+} from '@/utils/constants';
+import Image from 'next/image';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { Autoplay, FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import TextDownloadApple from '../../public/svg/downloadAppleText.svg';
+import TextDownloadGoogle from '../../public/svg/downloadGoogleText.svg';
+import IconApple from '../../public/svg/iconApple.svg';
+import IconGoogle from '../../public/svg/iconGoogle.svg';
+import IconStar from '../../public/svg/iconStar.svg';
+import IconStarEmpty from '../../public/svg/iconStarEmpty.svg';
 
 const StarRating = ({ stars }: { stars: number }) => {
   return (
@@ -30,7 +31,7 @@ const StarRating = ({ stars }: { stars: number }) => {
           <Image src={IconStar} alt="" key={i} className="IconStar" />
         ) : (
           <Image src={IconStarEmpty} alt="" key={i} className="IconStar" />
-        )
+        ),
       )}
     </div>
   );
@@ -47,23 +48,26 @@ const RatingSwiper = ({
   const isMobile = useCheckMobileScreen();
   return (
     <Swiper
+      spaceBetween={isMobile ? 10 : 20}
       autoplay={{
-        delay: 2000,
+        delay: 0, // No delay, continuous motion
         disableOnInteraction: false,
+        pauseOnMouseEnter: false,
+        stopOnLastSlide: false,
         reverseDirection: reverse,
       }}
       loop={true}
-      spaceBetween={20}
-      slidesPerView={isMobile ? 1 : 3}
-      modules={[Autoplay]}
-      pagination={{ clickable: true }}
-    >
-      {data?.map((item) => {
+      speed={isMobile ? 7000 : 5000}
+      // allowTouchMove={false}
+      slidesPerView={'auto'}
+      freeMode={true}
+      style={{ width: '100%', overflow: 'hidden' }}
+      modules={[FreeMode, Autoplay]}>
+      {data?.map(item => {
         return (
           <SwiperSlide
             key={item?.id}
-            className="flex bg-[#F9FAFB] min-w-[350px] p-[20px] rounded-[16px] RatingItemContainer"
-          >
+            className="flex bg-[#F9FAFB] min-w-[377px] p-[20px] rounded-[16px] RatingItemContainer ">
             <div className="flex flex-col justify-between h-[377px] RatingItemField">
               <div>
                 <div className="text-[24px] font-[700] leading-[36px] text-[#000] RatingTitleItem">
@@ -102,26 +106,28 @@ const RatingSwiper = ({
 const Home = () => {
   const isMobile = useCheckMobileScreen();
 
+  const goToGoogleStore = () => {
+    window.open(
+      'https://play.google.com/store/apps/details?id=com.mbs.note&pli=1',
+    );
+  };
+
+  const goToAppleStore = () => {
+    window.open('https://apps.apple.com/us/app/id6739834586');
+  };
+
   return (
     <>
-      <Head>
-        <div></div>
-      </Head>
       <div className="flex flex-col items-center pl-[10px] pr-[10px]">
         <div className="flex flex-col justify-center items-center pt-[222px] pb-[122]  HomeContainer">
           {/* Intro field */}
 
           <div className="text-[80px] font-bold leading-[96px] text-center gradientText">
-            Learn{" "}
-            <span className="bg-gradient-to-t from-[#00A18C] to-[#D6FFDB] bg-clip-text text-transparent">
-              faster
-            </span>
+            Learn <span className="text-transparent gradient-text">faster</span>
           </div>
           <div className="text-[80px] font-bold leading-[96px] text-center gradientText">
-            remember{" "}
-            <span className="bg-gradient-to-t from-[#00A18C] to-[#D6FFDB] bg-clip-text text-transparent">
-              longer
-            </span>
+            remember{' '}
+            <span className="text-transparent gradient-text">longer</span>
           </div>
           <span className="font-regular text-[24px] leading-[36px] text-center mt-[48px] mb-[50px] detailText">
             Robolearn transforms your notes into smart summaries, flashcards,
@@ -131,7 +137,9 @@ const Home = () => {
           {/* download field */}
 
           <div className="flex gap-[20px] justify-center downloadContainer">
-            <div className="flex bg-[black] w-[200px] h-[65px] rounded-[20px] gap-[10px] items-center justify-center cursor-pointer downloadButton">
+            <div
+              onClick={goToGoogleStore}
+              className="flex bg-[black] w-[200px] h-[65px] rounded-[20px] gap-[10px] items-center justify-center cursor-pointer downloadButton">
               <Image src={IconGoogle} alt="Logo" width={26.84} height={30} />
               <Image
                 src={TextDownloadGoogle}
@@ -140,7 +148,9 @@ const Home = () => {
                 height={32.19}
               />
             </div>
-            <div className="flex bg-[black] w-[200px] h-[65px] rounded-[20px] gap-[10px] items-center justify-center cursor-pointer downloadButton">
+            <div
+              onClick={goToAppleStore}
+              className="flex bg-[black] w-[200px] h-[65px] rounded-[20px] gap-[10px] items-center justify-center cursor-pointer downloadButton">
               <Image src={IconApple} alt="Logo" width={24.41} height={30} />
               <Image
                 src={TextDownloadApple}
@@ -159,12 +169,11 @@ const Home = () => {
             Your Personalized AI Study Assistant
           </div>
           <div className="flex flex-col max-w-[1200px]">
-            {AI_FEATURE?.map((item) => {
+            {AI_FEATURE?.map(item => {
               return (
                 <div
                   key={item?.id}
-                  className="flex items-center flex-wrap items-center justify-center mb-[30px]"
-                >
+                  className="flex items-center flex-wrap items-center justify-center mb-[30px]">
                   <div className="flex flex-col mr-[100px] max-w-[350px] FeatureLeftView">
                     <Image
                       src={item?.icon}
@@ -204,7 +213,7 @@ const Home = () => {
             How users are using Robolearn
           </div>
           <div className="flex gap-[100px] flex-wrap justify-center UsingItemContainer">
-            {HOW_TO_USE_ROBOLEARN?.map((item) => {
+            {HOW_TO_USE_ROBOLEARN?.map(item => {
               return (
                 <div key={item?.id} className="max-w-[333px]">
                   <Image
@@ -218,7 +227,7 @@ const Home = () => {
                     {item?.title}
                   </div>
                   <div
-                    className="text-[18px] font-[300] text-[#98A2B3] leading-[27px] UsingContentItem"
+                    className="text-[18px] font-[300] text-[#000] leading-[36px] UsingContentItem"
                     dangerouslySetInnerHTML={{ __html: item?.content }}
                   />
                 </div>
@@ -228,7 +237,7 @@ const Home = () => {
         </div>
 
         {/* Swiper */}
-        <div className="pb-[100px] w-[100%] bg-[#green] items-center RateContainer">
+        <div className="pb-[200px] w-[100%] bg-[#green] items-center RateContainer">
           <div className="text-[42px] font-[600] leading-[53px] text-[#000] w-[100%] flex flex-col items-center mb-[30px] RateTitle">
             What students are saying
           </div>
@@ -242,6 +251,10 @@ const Home = () => {
             <RatingSwiper data={RATING_BY_USER} />
           )}
         </div>
+
+        {/* FAQ */}
+        <FAQ />
+        <Footer />
       </div>
     </>
   );

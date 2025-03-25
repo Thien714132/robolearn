@@ -50,21 +50,21 @@ export const HOW_TO_USE_ROBOLEARN = [
     title: 'Effortless Lecture Notes',
     icon: iconHat,
     content:
-      '<span>Tired of messy notes? <span class="ContentUsingBold">Record your lectures, and Robolearn transforms them into clear, structured summaries.</span> No more scrambling to catch up before exams.</span>',
+      '<span class="spanUsing"><span class="ContentUsingBold">Tired of messy notes?<br/></span>Record your lectures, and Robolearn transforms them into clear, structured summaries. No more scrambling to catch up before exams.</span>',
   },
   {
     id: 2,
     title: 'Simplify Complex Diagrams',
     icon: iconDiagram,
     content:
-      '<span>Struggling with visuals? <span class="ContentUsingBold">Snap a photo of textbook diagrams or handwritten notes, and let AI break them down into easy-to-understand explanations.</span></span>',
+      '<span class="spanUsing"><span class="ContentUsingBold">Struggling with visuals?</span><br/>Snap a photo of textbook diagrams or handwritten notes, and let AI break them down into easy-to-understand explanations.</span>',
   },
   {
     id: 3,
     title: 'Study Smarter, Not Longer',
     icon: iconAim,
     content:
-      '<span>Dreading a 50-page reading assignment? <span class="ContentUsingBold">Upload PDFs, and Robolearn extracts key insights, saving you hours of study time while keeping you fully prepared.</span></span>',
+      '<span class="spanUsing"><span class="ContentUsingBold">Dreading a 50-page reading assignment?</span><br/>Upload PDFs, and Robolearn extracts key insights, saving you hours of study time while keeping you fully prepared.</span>',
   },
 ];
 
@@ -168,5 +168,38 @@ export const RATING_BY_USER = [
     name: 'Rachel Martinez',
     school: 'Law Student at Columbia',
     avatar: '',
+  },
+];
+
+export const FAQ_DATA = [
+  {
+    id: 1,
+    question: 'How does Robolearn work?',
+    anwser:
+      'Robolearn uses AI and the Feynman Technique to transform lectures, PDFs, images, and YouTube videos into structured notes. You can then study with flashcards, quizzes, mindmaps, and even test yourself with an AI interview!',
+  },
+  {
+    id: 2,
+    question: 'Can I use Robolearn for free?',
+    anwser:
+      'Yes! 🎉 The Free Plan allows you to create one AI-generated note to experience Robolearn’s features. To unlock unlimited notes, advanced quizzes, and AI-powered testing, upgrade to Robolearn Pro.',
+  },
+  {
+    id: 3,
+    question: 'What types of content can I upload?',
+    anwser:
+      'You can record lectures, snap photos of notes, upload PDFs, and even paste YouTube or web links. Robolearn processes all of these formats and extracts key takeaways in seconds.',
+  },
+  {
+    id: 4,
+    question: 'How does the AI Knowledge Test work?',
+    anwser:
+      'After studying, you can take an AI-powered test where Robolearn asks you dynamic questions based on what you’ve learned. Your responses are evaluated instantly, and you get feedback to improve your understanding.',
+  },
+  {
+    id: 5,
+    question: 'Is Robolearn useful for all subjects?',
+    anwser:
+      'Absolutely! 🏆 Whether you’re studying Business, Medicine, Law, Psychology, Computer Science, or Economics, Robolearn helps simplify complex topics and improves retention through active learning techniques.',
   },
 ];
