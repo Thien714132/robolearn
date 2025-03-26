@@ -3,7 +3,7 @@ import Head from 'next/head';
 import AppProvider from '../context/appContext';
 import localFont from 'next/font/local';
 import '../pages/globals.scss';
-import { METADATA_SOURCE } from '../utils/enums.ts';
+import { METADATA_SOURCE, ROUTE_NAME } from '../utils/enums.ts';
 import { useRouter } from 'next/router';
 
 const openSans = localFont({
@@ -68,9 +68,13 @@ const openSans = localFont({
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
+  const currentRoute = router.pathname;
+  const hideHeader =
+    currentRoute !== '/' + ROUTE_NAME.LANDING_PAGE &&
+    currentRoute !== '/' + ROUTE_NAME.TERM_AND_CONDITION &&
+    currentRoute !== '/' + ROUTE_NAME.PRIVACY_POLICY;
   const goHome = () => {
-    router.push('/');
+    router.push('/' + ROUTE_NAME.LANDING_PAGE);
   };
   function downloadApp() {
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
@@ -118,16 +122,20 @@ export default function MyApp({ Component, pageProps }) {
           'RootView',
         ].join(' ')}>
         <AppProvider>
-          <div className="flex flex-row w-[100%] max-w-[1512px] h-[60px] pl-[20px] pr-[20px] items-center fixed HeaderContainer bg-[rgba(255,255,255,0.9)] z-[10]">
+          <div
+            className={[
+              'flex flex-row w-[100%] max-w-[1512px] h-[60px] pl-[20px] pr-[20px] items-center fixed HeaderContainer bg-[rgba(255,255,255,0.9)] z-[10]',
+              hideHeader && 'hidden',
+            ].join(' ')}>
             <div
               className="flex items-center flex-1 LogoView cursor-pointer"
               onClick={goHome}>
               <img
                 src="favicon.ico"
-                className="h-[50px] w-[50px] Logo"
+                className="h-[39.51px] w-[38.33px] Logo"
                 alt="logo"
               />
-              <div className="font-semibold text-[30px]  ml-[10px] leading-[45px] AppName">
+              <div className="font-semibold text-[24px] ml-[10px] leading-[24px] AppName">
                 Robolearn
               </div>
             </div>

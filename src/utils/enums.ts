@@ -15,3 +15,9 @@ export const METADATA_SOURCE = {
   webIcon:
     'https://play-lh.googleusercontent.com/FeW7U9Gkx4Tcw0E6DXjt86BMUlahWiPhhA2ir7YGVdU149-N8S_oy5b2LFehAAyFkgs=w240-h480-rw',
 };
+
+export const ROUTE_NAME = {
+  LANDING_PAGE: 'landing-page',
+  TERM_AND_CONDITION: 'term-and-condition',
+  PRIVACY_POLICY: 'privacy-policy',
+};

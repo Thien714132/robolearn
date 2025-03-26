@@ -9,15 +9,16 @@ import IconShield from '../../../public/svg/ic_shield.svg';
 import IconTiktok from '../../../public/svg/ic_tiktok.svg';
 import IconX from '../../../public/svg/ic_x.svg';
 import styles from './index.module.scss';
+import { ROUTE_NAME } from '@/utils/enums';
 
 export const Footer = () => {
   const router = useRouter();
 
   const goToTerm = () => {
-    router.push('/term-and-condition');
+    router.push('/' + ROUTE_NAME?.TERM_AND_CONDITION);
   };
   const goToPrivacy = () => {
-    router.push('/privacy-policy');
+    router.push('/' + +ROUTE_NAME?.PRIVACY_POLICY);
   };
   return (
     <div className="flex flex-col items-center">

@@ -38,17 +38,7 @@ export const FAQ = () => {
               <div
                 className="cursor-pointer flex items-center w-[100%]"
                 onClick={onClickItem?.bind(null, item?.id)}>
-                <div
-                  style={
-                    isFocus
-                      ? {
-                          fontSize: '20px',
-                          fontWeight: '600',
-                          lineHeight: '30px',
-                        }
-                      : {}
-                  }
-                  className={[styles.txtQuestion].join(' ')}>
+                <div className={[styles.txtQuestion].join(' ')}>
                   {item?.question}
                 </div>
                 {isFocus ? (
