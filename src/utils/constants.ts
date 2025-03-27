@@ -9,6 +9,16 @@ import imgFunction1 from '../../public/webp/imgFunction1.webp';
 import imgFunction2 from '../../public/webp/imgFunction2.webp';
 import imgFunction3 from '../../public/webp/imgFunction3.webp';
 import imgFunction4 from '../../public/webp/imgFunction4.webp';
+import Student1 from '../../public/images/student1.jpeg';
+import Student2 from '../../public/images/student2.jpeg';
+import Student3 from '../../public/images/student3.jpeg';
+import Student4 from '../../public/images/student4.jpeg';
+import Student5 from '../../public/images/student5.jpeg';
+import Student6 from '../../public/images/student6.jpeg';
+import Student7 from '../../public/images/student7.jpeg';
+import Student8 from '../../public/images/student8.jpeg';
+import Student9 from '../../public/images/student9.jpeg';
+import Student10 from '../../public/images/student10.jpeg';
 
 export const AI_FEATURE = [
   {
@@ -77,7 +87,7 @@ export const RATING_BY_USER = [
       '📎 No more rewriting messy notes! Robolearn automatically creates structured summaries, flashcards, and quizzes, so I can focus on understanding instead of organizing. Huge time-saver! 🏆',
     name: 'Emily Carter',
     school: 'Psychology Major at Stanford',
-    avatar: '',
+    avatar: Student1,
   },
   {
     id: 2,
@@ -87,7 +97,7 @@ export const RATING_BY_USER = [
       '📖 I was falling behind in class, but Robolearn helped me catch up fast! ✅ AI-generated summaries, flashcards, and quizzes made reviewing so much easier. I feel way more confident now! 💪',
     name: 'Anna Rodriguez',
     school: 'Business Administration Major at UCLA',
-    avatar: '',
+    avatar: Student2,
   },
   {
     id: 3,
@@ -97,7 +107,7 @@ export const RATING_BY_USER = [
       '📖 Studying for finals used to be overwhelming, but now I just upload PDFs, and Robolearn summarizes everything & creates quizzes! ⏳ It’s like having a personal tutor in my pocket!',
     name: 'Jake Nguyen',
     school: 'Economics Major at Harvard',
-    avatar: '',
+    avatar: Student3,
   },
   {
     id: 4,
@@ -107,7 +117,7 @@ export const RATING_BY_USER = [
       '⏳ I used to pull all-nighters before exams, but with Robolearn’s flashcards & AI quizzes, I retain information way better! Studying a little every day feels effortless now. 🚀',
     name: 'Rachel Martinez',
     school: 'Law Student at Columbia',
-    avatar: '',
+    avatar: Student4,
   },
   {
     id: 5,
@@ -117,7 +127,7 @@ export const RATING_BY_USER = [
       '⚙️ As an engineering student, I deal with tough concepts daily. Robolearn simplifies my textbooks, organizes my notes, and even quizzes me before exams! ✅ Absolutely essential!',
     name: 'Sophia Patel',
     school: 'Mechanical Engineering Major at MIT',
-    avatar: '',
+    avatar: Student5,
   },
   {
     id: 6,
@@ -127,7 +137,7 @@ export const RATING_BY_USER = [
       '📖 My study group uses Robolearn to create instant notes from our discussions! The AI chatbot even helps us clarify tough concepts. It’s like having a professor on demand! 🏆',
     name: 'Olivia Chang',
     school: 'Finance Major at NYU',
-    avatar: '',
+    avatar: Student9,
   },
   {
     id: 7,
@@ -137,7 +147,7 @@ export const RATING_BY_USER = [
       '📗 I struggle with dense text, but Robolearn’s mindmaps & structured notes help me visualize information clearly! 🚀 Perfect for anyone who learns better with visuals!',
     name: 'Michael Johnson',
     school: 'Biochemistry Major at Yale',
-    avatar: '',
+    avatar: Student7,
   },
   {
     id: 8,
@@ -147,7 +157,7 @@ export const RATING_BY_USER = [
       '📖 I was falling behind in class, but Robolearn helped me catch up fast! ✅ AI-generated summaries, flashcards, and quizzes made reviewing so much easier. I feel way more confident now! 💪',
     name: 'Anna Rodriguez',
     school: 'Business Administration Major at UCLA',
-    avatar: '',
+    avatar: Student8,
   },
   {
     id: 9,
@@ -157,7 +167,7 @@ export const RATING_BY_USER = [
       '📝 This app has transformed the way I study. I used to struggle with dense textbooks, but now I can upload PDFs, get key insights, and test myself with AI. ⏳ Huge confidence boost before exams!',
     name: 'Mark Evans',
     school: 'Biology Major at University of Toronto',
-    avatar: '',
+    avatar: Student6,
   },
   {
     id: 10,
@@ -167,7 +177,7 @@ export const RATING_BY_USER = [
       '⏳ I used to pull all-nighters before exams, but with Robolearn’s flashcards & AI quizzes, I retain information way better! Studying a little every day feels effortless now. 🚀',
     name: 'Rachel Martinez',
     school: 'Law Student at Columbia',
-    avatar: '',
+    avatar: Student10,
   },
 ];
 

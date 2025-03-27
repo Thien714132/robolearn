@@ -44,14 +44,14 @@ export const FAQ = () => {
                 {isFocus ? (
                   <Image
                     src={IconClose}
-                    alt=""
+                    alt="IconClose"
                     onClick={onCloseItem?.bind(null, item?.id)}
                     className={styles.icon}
                   />
                 ) : (
                   <Image
                     src={IconPlus}
-                    alt=""
+                    alt="IconPlus"
                     onClick={onCloseItem?.bind(null, item?.id)}
                     className={styles.icon}
                   />

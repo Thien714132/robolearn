@@ -1,10 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
-import AppProvider from '../context/appContext';
+import AppProvider from '../context/appContext.tsx';
 import localFont from 'next/font/local';
 import '../pages/globals.scss';
 import { METADATA_SOURCE, ROUTE_NAME } from '../utils/enums.ts';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import LogoApp from '../../public/logoApp.png';
+import { getAnalytics, isSupported } from 'firebase/analytics';
+import { app } from '../../firebaseConfig';
+import { useEffect } from 'react';
+import {
+  FirebaseLogEvent,
+  logEventTracking,
+} from '@/modules/firebase/FirebaseLogEvent';
 
 const openSans = localFont({
   src: [
@@ -67,6 +76,17 @@ const openSans = localFont({
 });
 
 export default function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      isSupported().then(supported => {
+        if (supported) {
+          getAnalytics(app);
+          console.log('supported');
+        }
+      });
+    }
+  }, []);
+
   const router = useRouter();
   const currentRoute = router.pathname;
   const hideHeader =
@@ -77,6 +97,7 @@ export default function MyApp({ Component, pageProps }) {
     router.push('/' + ROUTE_NAME.LANDING_PAGE);
   };
   function downloadApp() {
+    logEventTracking(FirebaseLogEvent.landing_page_press_download_header);
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
     const isWindows = navigator.platform.toUpperCase().indexOf('WIN') >= 0;
 
@@ -93,7 +114,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href={METADATA_SOURCE.shareImg} sizes="any" />
         <title>
           Robolearn - AI Note Taker and Feynman AI for Intelligent Learning
         </title>
@@ -118,25 +139,29 @@ export default function MyApp({ Component, pageProps }) {
       <div
         className={[
           openSans.className,
-          'flex flex-1 flex-col items-center',
+          'flex flex-1 flex-col items-center mt-[-1px]',
           'RootView',
         ].join(' ')}>
         <AppProvider>
           <div
             className={[
-              'flex flex-row w-[100%] max-w-[1512px] h-[60px] pl-[20px] pr-[20px] items-center fixed HeaderContainer bg-[rgba(255,255,255,0.9)] z-[10]',
+              'flex flex-row w-[100%] h-[60px] pl-[20px] pr-[20px] items-center fixed HeaderContainer bg-[rgba(255,255,255,0.9)] z-[10]',
               hideHeader && 'hidden',
             ].join(' ')}>
-            <div
-              className="flex items-center flex-1 LogoView cursor-pointer"
-              onClick={goHome}>
-              <img
-                src="favicon.ico"
-                className="h-[39.51px] w-[38.33px] Logo"
-                alt="logo"
-              />
-              <div className="font-semibold text-[24px] ml-[10px] leading-[24px] AppName">
-                Robolearn
+            <div className="flex items-center flex-1 LogoView ">
+              <div
+                className="cursor-pointer flex items-center"
+                onClick={goHome}>
+                <Image
+                  alt="logo"
+                  src={LogoApp}
+                  height={39.51}
+                  width={38.33}
+                  className="Logo"
+                />
+                <div className="font-semibold text-[24px] ml-[10px] leading-[24px] AppName">
+                  Robolearn
+                </div>
               </div>
             </div>
             <div
@@ -145,7 +170,7 @@ export default function MyApp({ Component, pageProps }) {
               Download now
             </div>
           </div>
-          <div className="flex flex-col w-[100%] max-w-[1512px]">
+          <div className="flex flex-col w-[100%] items-center">
             <Component {...pageProps} />
           </div>
         </AppProvider>

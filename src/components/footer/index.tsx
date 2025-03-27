@@ -10,6 +10,7 @@ import IconTiktok from '../../../public/svg/ic_tiktok.svg';
 import IconX from '../../../public/svg/ic_x.svg';
 import styles from './index.module.scss';
 import { ROUTE_NAME } from '@/utils/enums';
+import LogoApp from '../../../public/logoApp.png';
 
 export const Footer = () => {
   const router = useRouter();
@@ -22,10 +23,10 @@ export const Footer = () => {
   };
   return (
     <div className="flex flex-col items-center">
-      <img
-        src="favicon.ico"
-        className={['h-[100px] w-[100px] mb-[10px]', styles.logo].join(' ')}
+      <Image
         alt="logo"
+        src={LogoApp}
+        className={['h-[100px] w-[100px] mb-[10px]', styles.logo].join(' ')}
       />
       <div className="flex gap-[30px] mb-[10px]">
         <div
@@ -35,7 +36,7 @@ export const Footer = () => {
             src={IconFile}
             height={24}
             width={24}
-            alt=""
+            alt="IconFile"
             className={styles.iconTerm}
           />
           <div className={styles.txtTerm}>Terms & Conditions</div>
@@ -47,7 +48,7 @@ export const Footer = () => {
             src={IconShield}
             height={24}
             width={24}
-            alt=""
+            alt="IconShield"
             className={styles.iconTerm}
           />
           <div className={styles.txtTerm}>Privacy Policy</div>
@@ -58,21 +59,21 @@ export const Footer = () => {
           src={IconX}
           height={32}
           width={32}
-          alt=""
+          alt="IconX"
           className="cursor-pointer"
         />
         <Image
           src={IconIns}
           height={40}
           width={40}
-          alt=""
+          alt="IconIns"
           className="cursor-pointer"
         />
         <Image
           src={IconTiktok}
           height={40}
           width={40}
-          alt=""
+          alt="IconTiktok"
           className="cursor-pointer"
         />
       </div>
@@ -81,7 +82,7 @@ export const Footer = () => {
           src={IconCopyright}
           height={22}
           width={22}
-          alt=""
+          alt="IconCopyright"
           className={styles.iconTerm}
         />
         <div className={styles.txtTerm}>2025 Robolearn</div>

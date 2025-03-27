@@ -23,6 +23,10 @@ import IconGoogle from '../../../public/svg/iconGoogle.svg';
 import IconStar from '../../../public/svg/iconStar.svg';
 import IconStarEmpty from '../../../public/svg/iconStarEmpty.svg';
 import styles from './index.module.scss';
+import {
+  FirebaseLogEvent,
+  logEventTracking,
+} from '@/modules/firebase/FirebaseLogEvent';
 
 const StarRating = ({ stars }: { stars: number }) => {
   return (
@@ -32,11 +36,16 @@ const StarRating = ({ stars }: { stars: number }) => {
       )}>
       {[...Array(5)].map((_, i) =>
         i < stars ? (
-          <Image src={IconStar} alt="" key={i} className={styles.IconStar} />
+          <Image
+            src={IconStar}
+            alt="IconStar"
+            key={i}
+            className={styles.IconStar}
+          />
         ) : (
           <Image
             src={IconStarEmpty}
-            alt=""
+            alt="IconStarEmpty"
             key={i}
             className={styles.IconStar}
           />
@@ -108,7 +117,7 @@ const RatingSwiper = ({
                   height={60}
                   width={60}
                   className="bg-[#D9D9D9] rounded-[30px] mr-[10px]"
-                  alt=""
+                  alt="avatar"
                 />
                 <div className="flex flex-col justify-center">
                   <div
@@ -139,17 +148,20 @@ const LandingPage = () => {
   const isMobile = useCheckMobileScreen();
 
   const goToGoogleStore = () => {
+    logEventTracking(FirebaseLogEvent.landing_page_press_download_google);
+
     window.open(
       'https://play.google.com/store/apps/details?id=com.mbs.note&pli=1',
     );
   };
 
   const goToAppleStore = () => {
+    logEventTracking(FirebaseLogEvent.landing_page_press_download_apple);
     window.open('https://apps.apple.com/us/app/id6739834586');
   };
 
   return (
-    <>
+    <div className="w-[100vw] flex flex-col max-w-[1512px]">
       <div className="flex flex-col items-center pl-[10px] pr-[10px]">
         <div
           className={[
@@ -314,7 +326,7 @@ const LandingPage = () => {
                 <div key={item?.id} className="max-w-[333px]">
                   <Image
                     src={item?.icon}
-                    alt=""
+                    alt={'icon' + item?.id}
                     height={100}
                     width={100}
                     className={styles.UsingIcon}
@@ -367,7 +379,7 @@ const LandingPage = () => {
         <FAQ />
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 export default LandingPage;
